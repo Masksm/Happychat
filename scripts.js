@@ -1,24 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login');
-    const signupForm = document.getElementById('signup');
-    const goToSignup = document.getElementById('goToSignup');
-    const goToLogin = document.getElementById('goToLogin');
+document.getElementById('to-signup').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('login').style.transform = 'rotateY(-180deg)';
+    document.getElementById('signup').style.transform = 'rotateY(0deg)';
+    document.getElementById('signup').classList.remove('hidden');
+    document.getElementById('login').classList.add('hidden');
+});
 
-    function showSignup() {
-        loginForm.style.transform = 'rotateY(-180deg)';
-        signupForm.style.transform = 'rotateY(0deg)';
-    }
-
-    function showLogin() {
-        loginForm.style.transform = 'rotateY(0deg)';
-        signupForm.style.transform = 'rotateY(180deg)';
-    }
-
-    goToSignup.addEventListener('click', () => {
-        showSignup();
-    });
-
-    goToLogin.addEventListener('click', () => {
-        showLogin();
-    });
+document.getElementById('to-login').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('login').style.transform = 'rotateY(0deg)';
+    document.getElementById('signup').style.transform = 'rotateY(180deg)';
+    document.getElementById('signup').classList.add('hidden');
+    document.getElementById('login').classList.remove('hidden');
 });
