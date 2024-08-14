@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <section id="login">
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                    <button type="button" id="goToSignup">Sign Up</button>
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+            <section id="signup" class="hidden">
+                <h1>Sign Up</h1>
+                <form id="signupForm">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" name="signupEmail" required>
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required>
+                    <button type="button" id="goToLogin">Login</button>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+                  </html>
