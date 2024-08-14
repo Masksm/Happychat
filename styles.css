@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('path-to-your-image.jpg'); /* Replace with your background image */
+    background-image: url('Happychat/background image.tiff'); /* Replace with your background image */
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -50,7 +50,10 @@ form {
     justify-content: center;
     align-items: center;
 }
-
+ form:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
 label {
     margin-bottom: 5px;
 }
