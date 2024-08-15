@@ -1,84 +1,128 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('Happychat/background-image.tiff');
-    background-size: cover;
-    background-position: center;
-    color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0; /* Ensure no default margin */
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(90deg, #1e3c72, #2a5298); /* Fallback gradient */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3), var(--color4));
+    z-index: -1;
+    transition: background 30s ease infinite; /* Smooth and slow transition */
+    animation: gradientAnimation 30s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3), var(--color4));
+    }
+    25% {
+        background: linear-gradient(90deg, var(--color4), var(--color3), var(--color2), var(--color1));
+    }
+    50% {
+        background: linear-gradient(90deg, var(--color2), var(--color1), var(--color4), var(--color3));
+    }
+    75% {
+        background: linear-gradient(90deg, var(--color3), var(--color4), var(--color1), var(--color2));
+    }
+    100% {
+        background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3), var(--color4));
+    }
 }
 
 .form-container {
+    width: 92%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
     position: relative;
-    width: 90%;
-    max-width: 400px;
-    height: 500px;
-    perspective: 1500px;
+    padding: 13px;
 }
 
-section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #000; /* Solid black background */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.6s ease-in-out;
-    transform-style: preserve-3d;
-    color: #fff; /* Change text color to white to ensure readability */
-}
-
-.hidden {
-    display: none;
-}
-
-#login {
-    transform: rotateY(0deg);
-}
-
-#signup {
-    transform: rotateY(180deg);
-}
-
-form {
-    margin: 20px;
+.form-inner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 300%; /* Adjusts for all three forms */
+    transition: transform 0.6s ease-in-out;
 }
 
-form:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+.form {
+    width: 300px;
+    padding: 20px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
-label {
-    margin-bottom: 5px;
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-input {
+.input-group i {
+    position: absolute;
+    top: 57%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: blue; /* Adjust icon color */
+}
+
+.form input {
     width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding-left: 30px; /* Space for the icon */
+}
+
+.form input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.form label {
+    left: 15px;
+    pointer-events: none;
+    transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    color: #000;
+}
+
+.form input:focus + label,
+.form input:not(:placeholder-shown) + label {
+    transform: translateY(-20px);
+    font-size: 12px;
+    color: #007BFF;
 }
 
 button {
-    width: 90%;
-    padding: 10px;
-    background-color: #007BFF;
+    width: 100%;
+    padding: 15px;
     border: none;
-    color: #fff;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
     cursor: pointer;
-    border-radius: 4px;
-    margin: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
@@ -86,41 +130,87 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Larger Screen Styles */
+button:active {
+    background-color: #004494;
+    transform: scale(0.95);
+}
+
+a.button-link {
+    width: 86%;
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: white;
+    background-color: #004494;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.button-link:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+a.button-link:active {
+    background-color: #003a7e;
+    transform: scale(0.95);
+}
+
+#signup-form {
+    display: none;
+}
+.form-inner.show-signup #signup-form {
+    display: block;
+}
+
+.form-inner.show-signup #login-form {
+    display: none;
+}
+
+#forgot-password-form {
+    display: none;
+}
+
+.form-inner.show-forgot-password #forgot-password-form {
+    display: block;
+    transform: translateX(0%);
+}
+
+.form-inner.show-forgot-password #login-form,
+.form-inner.show-forgot-password #signup-form {
+    display: none;
+}
+
+@media (max-width: 575.98px) {
+    .form-container {
+        max-width: 100%;
+    }
+}
+
 @media (min-width: 768px) {
     .form-container {
-        width: 80%;
-        height: 60vh;
-    }
-
-    section {
-        height: 100%;
+        max-width: 600px;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
     .form-container {
-        width: 50%;
-        height: 60vh;
+        max-width: 800px;
     }
 
-    section {
-        height: 80%;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .form-container {
-        width: 100%;
-        height: auto;
+    body {
+        padding: 40px;
     }
 
-    section {
-        height: auto;
+    button {
+        padding: 20px;
+        font-size: 18px;
     }
 
-    input, button {
-        width: 100%;
+    .form input {
+        font-size: 18px;
     }
-        }
+    }
