@@ -3,36 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Site</title>
+    <title>Social Media Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage/font/webfonts/all.min.css">
+    <link rel="stylesheet" href="homepage/font/css/all.min.css">
+     <!-- Make sure this path is correct -->
 </head>
 <body>
-    <main>
+    <div class="container">
         <div class="form-container">
-            <section id="login">
-                <h1>Login</h1>
-                <form id="loginForm">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" id="loginPassword" name="password" required>
-                    <button type="button" id="goToSignup">Sign Up</button>
-                    <button type="submit">Login</button>
-                </form>
-            </section>
-            <section id="signup" class="hidden">
-                <h1>Sign Up</h1>
-                <form id="signupForm">
-                    <label for="signupEmail">Email:</label>
-                    <input type="email" id="signupEmail" name="signupEmail" required>
-                    <label for="signupPassword">Password:</label>
-                    <input type="password" id="signupPassword" name="signupPassword" required>
-                    <button type="button" id="goToLogin">Login</button>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </section>
+            <div class="form-inner" id="form-inner">
+                <!-- Login Form -->
+                <div class="form" id="login-form">
+                    <h2>Login</h2>
+                    <form>
+                        <div class="input-group">
+                            <label for="login-phone">Phone Number</label>
+   
+        <i class="fa fa-user"></i>
+                            <input type="text" id="login-phone" placeholder="Phone Number" required>
+             
+                           
+                        </div>
+                        <div class="input-group">
+                        <i class="fa fa-lock"></i>   
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" placeholder="Password" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                    <p><a href="#" id="show-signup" class="button-link">Don't have an account? Sign up</a></p>
+                    <p><a href="#" id="forgot-password" class="button-link">Forgot Password?</a></p>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="form" id="signup-form">
+                   
+                    <h2>Sign Up</h2>
+                    <form>
+                        <div class="input-group"><i class="fa fa-user-plus"></i>
+                            <label for="signup-name">Name</label>
+                            <input type="text" id="signup-name" placeholder="Name" required>
+                        </div>
+                        <div class="input-group"><i class="fa fa-user"></i>
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group"> <i class="fa fa-mobile-alt"></i>                            <label for="signup-phone">Phone Number</label>
+                            <input type="text" id="signup-phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="input-group"><i class="fa fa-lock"></i>
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" placeholder="Password" required>
+                        </div>
+                        <div class="input-group"><i class="fa fa-lock"></i>
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <p><a href="#" id="show-login" class="button-link">Already have an account? Login</a></p>
+                </div>
+
+                <!-- Forgot Password Form -->
+                <div class="form" id="forgot-password-form">
+                    <h2>Forgot Password</h2>
+                    <form>
+                          <div class="input-group"><i class="fa fa-envelope"></i>
+                        <input type="text" placeholder="Phone Number or Email" required>
+                      </Div>  <button type="submit">Reset Password</button>
+                    </form>
+                    <p><a href="#" id="back-to-login" class="button-link">Back to Login</a></p>
+                </div>
+            </div>
         </div>
-    </main>
-    <script src="scripts.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-                  </html>
+            </html>
