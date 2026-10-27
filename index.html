@@ -1,86 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage/font/webfonts/all.min.css">
-    <link rel="stylesheet" href="homepage/font/css/all.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-     <!-- Make sure this path is correct -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17251d">
+  <meta name="description" content="A small kingdom-building strategy game. Gather resources, build your settlement, and expand your realm.">
+  <title>Little Kingdom | Empire Builder</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="form-container">
-            <div class="form-inner" id="form-inner">
-                <!-- Login Form -->
-                <div class="form" id="login-form">
-                    <h2>Login</h2>
-                    <form>
-                        <div class="input-group">
-                            <label for="login-phone">Phone Number</label>
-   
-        <i class="fa fa-user"></i>
-                            <input type="text" id="login-phone" placeholder="Phone Number" required>
-             
-                           
-                        </div>
-                        <div class="input-group">
-                        <i class="fa fa-lock"></i>   
-                            <label for="login-password">Password</label>
-                            <input type="password" id="login-password" placeholder="Password" required>
-                        </div>
-                        <button type="submit">Login</button>
-                    </form>
-                    <p><a href="#" id="show-signup" class="button-link">Don't have an account? Sign up</a></p>
-                    <p><a href="#" id="forgot-password" class="button-link">Forgot Password?</a></p>
-                </div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Little Kingdom home"><span class="brand-mark">♜</span> LITTLE KINGDOM</a>
+    <div class="day-pill"><span class="pulse"></span><span id="day-label">DAY 1</span></div>
+  </header>
 
-                <!-- Sign Up Form -->
-                <div class="form" id="signup-form">
-                   
-                    <h2>Sign Up</h2>
-                    <form>
-                        <div class="input-group"><i class="fa fa-user-plus"></i>
-                            <label for="signup-name">Name</label>
-                            <input type="text" id="signup-name" placeholder="Name" required>
-                        </div>
-                        <div class="input-group"><i class="fa fa-user"></i>
-                            <label for="signup-username">Username</label>
-                            <input type="text" id="signup-username" placeholder="Username" required>
-                        </div>
-                        <div class="input-group"> <i class="fa fa-mobile-alt"></i>                            <label for="signup-phone">Phone Number</label>
-                            <input type="text" id="signup-phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="input-group"><i class="fa fa-lock"></i>
-                            <label for="signup-password">Password</label>
-                            <input type="password" id="signup-password" placeholder="Password" required>
-                        </div>
-                        <div class="input-group"><i class="fa fa-lock"></i>
-                            <label for="signup-confirm-password">Confirm Password</label>
-                            <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
-                        </div>
-                        <button type="submit">Sign Up</button>
-                    </form>
-                    <p><a href="#" id="show-login" class="button-link">Already have an account? Login</a></p>
-                </div>
+  <main class="shell">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR FIRST REALM</p>
+        <h1>A kingdom starts<br><span>with one decision.</span></h1>
+        <p class="intro">Gather what you need. Build something lasting. Grow at your own pace.</p>
+      </div>
+      <div class="crest" aria-hidden="true"><span>♜</span><small>YOUR REALM</small></div>
+    </section>
 
-                <!-- Forgot Password Form -->
-                <div class="form" id="forgot-password-form">
-                    <h2>Forgot Password</h2>
-                    <form>
-                          <div class="input-group"><i class="fa fa-envelope"></i>
-                        <input type="text" placeholder="Phone Number or Email" required>
-                      </Div>  <button type="submit">Reset Password</button>
-                    </form>
-                    <p><a href="#" id="back-to-login" class="button-link">Back to Login</a></p>
-                </div>
-            </div>
+    <section class="stats-grid" aria-label="Kingdom resources">
+      <article class="resource-card gold"><div class="resource-top"><span class="resource-icon">◉</span><span class="resource-name">GOLD</span></div><strong id="gold">10000</strong><small>Kingdom treasury</small></article>
+      <article class="resource-card food"><div class="resource-top"><span class="resource-icon">❋</span><span class="resource-name">FOOD</span></div><strong id="food">500</strong><small>Feeds your people</small></article>
+      <article class="resource-card wood"><div class="resource-top"><span class="resource-icon">♣</span><span class="resource-name">WOOD</span></div><strong id="wood">500</strong><small>For building</small></article>
+      <article class="resource-card stone"><div class="resource-top"><span class="resource-icon">⬟</span><span class="resource-name">STONE</span></div><strong id="stone">500</strong><small>For strong foundations</small></article>
+    </section>
+
+    <section class="overview-grid">
+      <article class="panel realm-panel">
+        <div class="panel-heading"><div><p class="eyebrow">YOUR DOMAIN</p><h2>The Greenvale</h2></div><span class="tag">Peaceful</span></div>
+        <div class="map" aria-label="Illustration of your starting territory">
+          <div class="sun"></div><div class="mountain m1"></div><div class="mountain m2"></div>
+          <div class="river"></div><div class="forest forest-one">♠ ♠ ♠</div><div class="forest forest-two">♠ ♠</div>
+          <div class="settlement"><span class="town-icon">⌂</span><b>Your settlement</b><small>Population: <span id="population">1,000</span></small></div>
+          <span class="map-label label-north">NORTH RIDGE</span><span class="map-label label-south">GREENVALE</span>
         </div>
-    </div>
+        <div class="realm-footer"><div><small>CONTROLLED TERRITORY</small><strong id="territories">1 territory</strong></div><div><small>BUILDINGS</small><strong id="building-count">0</strong></div><div><small>ARMY</small><strong id="army">0</strong></div></div>
+      </article>
 
-    <script src="script.js"></script>
+      <article class="panel actions-panel">
+        <div class="panel-heading"><div><p class="eyebrow">TAKE ACTION</p><h2>Shape your kingdom</h2></div></div>
+        <p class="panel-copy">Collect resources by hand, or invest in buildings that produce them over time.</p>
+        <div class="action-list">
+          <div class="action-row"><div class="action-symbol gather">✦</div><div class="action-info"><b>Gather resources</b><small>Choose what your people collect.</small></div></div>
+          <div class="gather-buttons"><button class="button button-soft" data-gather="food">＋ 50 Food</button><button class="button button-soft" data-gather="wood">＋ 50 Wood</button><button class="button button-soft" data-gather="stone">＋ 50 Stone</button></div>
+          <div class="action-row building-row"><div class="action-symbol farm">⌂</div><div class="action-info"><b>Build a farm</b><small>Produces 25 food each day.</small><small class="cost">Cost: 100 wood · 100 stone · 500 gold</small></div><button class="button button-primary" id="build-farm">Build</button></div>
+          <div class="action-row building-row"><div class="action-symbol barracks">⚑</div><div class="action-info"><b>Build barracks</b><small>Start preparing a defense force.</small><small class="cost">Cost: 150 wood · 100 stone · 1,000 gold</small></div><button class="button button-primary" id="build-barracks">Build</button></div>
+          <div class="action-row building-row"><div class="action-symbol lumber">♣</div><div class="action-info"><b>Build a lumber camp</b><small>Produces 25 wood each day.</small><small class="cost">Cost: 100 food · 100 stone · 500 gold</small></div><button class="button button-primary" id="build-lumber">Build</button></div>
+        </div>
+        <button class="button button-advance" id="next-day">End day <span>→</span></button>
+        <p class="hint">Ending the day collects production from your buildings.</p>
+      </article>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel buildings-panel"><div class="panel-heading"><div><p class="eyebrow">UNDER YOUR BANNER</p><h2>Your buildings</h2></div><span class="count-badge" id="building-badge">0</span></div><div id="building-list" class="empty-state"><span>⌂</span><b>Your land is untouched.</b><p>Build your first farm to get the kingdom moving.</p></div></article>
+      <article class="panel log-panel"><div class="panel-heading"><div><p class="eyebrow">KINGDOM RECORD</p><h2>Recent events</h2></div><button class="text-button" id="reset-game">Restart</button></div><ol id="event-log" class="event-log"><li><span class="event-dot"></span><div><b>Your reign begins</b><small>You take charge of Greenvale.</small></div><time>Day 1</time></li></ol></article>
+    </section>
+    <footer><span>Little Kingdom <span class="footer-dot">•</span> Early prototype</span><span>Small steps. Strong foundations.</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
-            </html>
+</html>
