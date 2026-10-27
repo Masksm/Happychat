@@ -1,70 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17251d">
-  <meta name="description" content="A small kingdom-building strategy game. Gather resources, build your settlement, and expand your realm.">
-  <title>Little Kingdom | Empire Builder</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" defer></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171d1b"><title>Iron Crown | Medieval Campaign</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Little Kingdom home"><span class="brand-mark">♜</span> LITTLE KINGDOM</a>
-    <div class="day-pill"><span class="pulse"></span><span id="day-label">DAY 1</span></div>
-  </header>
-
-  <main class="shell">
-    <section class="welcome">
-      <div>
-        <p class="eyebrow">YOUR FIRST REALM</p>
-        <h1>A kingdom starts<br><span>with one decision.</span></h1>
-        <p class="intro">Gather what you need. Build something lasting. Grow at your own pace.</p>
-      </div>
-      <div class="crest" aria-hidden="true"><span>♜</span><small>YOUR REALM</small></div>
-    </section>
-
-    <section class="stats-grid" aria-label="Kingdom resources">
-      <article class="resource-card gold"><div class="resource-top"><span class="resource-icon">◉</span><span class="resource-name">GOLD</span></div><strong id="gold">10000</strong><small>Kingdom treasury</small></article>
-      <article class="resource-card food"><div class="resource-top"><span class="resource-icon">❋</span><span class="resource-name">FOOD</span></div><strong id="food">500</strong><small>Feeds your people</small></article>
-      <article class="resource-card wood"><div class="resource-top"><span class="resource-icon">♣</span><span class="resource-name">WOOD</span></div><strong id="wood">500</strong><small>For building</small></article>
-      <article class="resource-card stone"><div class="resource-top"><span class="resource-icon">⬟</span><span class="resource-name">STONE</span></div><strong id="stone">500</strong><small>For strong foundations</small></article>
-    </section>
-
-    <section class="overview-grid">
-      <article class="panel realm-panel">
-        <div class="panel-heading"><div><p class="eyebrow">YOUR DOMAIN</p><h2>The Greenvale</h2></div><span class="tag">Peaceful</span></div>
-        <div class="map" aria-label="Illustration of your starting territory">
-          <div class="sun"></div><div class="mountain m1"></div><div class="mountain m2"></div>
-          <div class="river"></div><div class="forest forest-one">♠ ♠ ♠</div><div class="forest forest-two">♠ ♠</div>
-          <div class="settlement"><span class="town-icon">⌂</span><b>Your settlement</b><small>Population: <span id="population">1,000</span></small></div>
-          <span class="map-label label-north">NORTH RIDGE</span><span class="map-label label-south">GREENVALE</span>
-        </div>
-        <div class="realm-footer"><div><small>CONTROLLED TERRITORY</small><strong id="territories">1 territory</strong></div><div><small>BUILDINGS</small><strong id="building-count">0</strong></div><div><small>ARMY</small><strong id="army">0</strong></div></div>
-      </article>
-
-      <article class="panel actions-panel">
-        <div class="panel-heading"><div><p class="eyebrow">TAKE ACTION</p><h2>Shape your kingdom</h2></div></div>
-        <p class="panel-copy">Collect resources by hand, or invest in buildings that produce them over time.</p>
-        <div class="action-list">
-          <div class="action-row"><div class="action-symbol gather">✦</div><div class="action-info"><b>Gather resources</b><small>Choose what your people collect.</small></div></div>
-          <div class="gather-buttons"><button class="button button-soft" data-gather="food">＋ 50 Food</button><button class="button button-soft" data-gather="wood">＋ 50 Wood</button><button class="button button-soft" data-gather="stone">＋ 50 Stone</button></div>
-          <div class="action-row building-row"><div class="action-symbol farm">⌂</div><div class="action-info"><b>Build a farm</b><small>Produces 25 food each day.</small><small class="cost">Cost: 100 wood · 100 stone · 500 gold</small></div><button class="button button-primary" id="build-farm">Build</button></div>
-          <div class="action-row building-row"><div class="action-symbol barracks">⚑</div><div class="action-info"><b>Build barracks</b><small>Start preparing a defense force.</small><small class="cost">Cost: 150 wood · 100 stone · 1,000 gold</small></div><button class="button button-primary" id="build-barracks">Build</button></div>
-          <div class="action-row building-row"><div class="action-symbol lumber">♣</div><div class="action-info"><b>Build a lumber camp</b><small>Produces 25 wood each day.</small><small class="cost">Cost: 100 food · 100 stone · 500 gold</small></div><button class="button button-primary" id="build-lumber">Build</button></div>
-        </div>
-        <button class="button button-advance" id="next-day">End day <span>→</span></button>
-        <p class="hint">Ending the day collects production from your buildings.</p>
-      </article>
-    </section>
-
-    <section class="bottom-grid">
-      <article class="panel buildings-panel"><div class="panel-heading"><div><p class="eyebrow">UNDER YOUR BANNER</p><h2>Your buildings</h2></div><span class="count-badge" id="building-badge">0</span></div><div id="building-list" class="empty-state"><span>⌂</span><b>Your land is untouched.</b><p>Build your first farm to get the kingdom moving.</p></div></article>
-      <article class="panel log-panel"><div class="panel-heading"><div><p class="eyebrow">KINGDOM RECORD</p><h2>Recent events</h2></div><button class="text-button" id="reset-game">Restart</button></div><ol id="event-log" class="event-log"><li><span class="event-dot"></span><div><b>Your reign begins</b><small>You take charge of Greenvale.</small></div><time>Day 1</time></li></ol></article>
-    </section>
-    <footer><span>Little Kingdom <span class="footer-dot">•</span> Early prototype</span><span>Small steps. Strong foundations.</span></footer>
-  </main>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-</body>
-</html>
+<header class="topbar"><div class="brand"><span class="brand-mark">♜</span><div><strong>IRON CROWN</strong><small>MEDIEVAL CAMPAIGN</small></div></div><div class="turnbox"><span id="season">SPRING · YEAR 1</span><strong>TURN <b id="turn">1</b></strong></div></header>
+<main>
+<section class="resources" aria-label="Kingdom resources"><div><small>GOLD</small><strong>🪙 <span id="gold">1200</span></strong></div><div><small>FOOD</small><strong>🌾 <span id="food">800</span></strong></div><div><small>WOOD</small><strong>🪵 <span id="wood">450</span></strong></div><div><small>IRON</small><strong>⛏️ <span id="iron">250</span></strong></div><div><small>ARMY</small><strong>⚔️ <span id="army">1200</span></strong></div></section>
+<section class="intro"><div><p class="eyebrow">THE CROWN AWAITS</p><h1>Conquer the<br><em>medieval world.</em></h1><p>Command your armies. Take the frontier. Build a kingdom that survives the age.</p></div><div class="crest">♜<span>✦</span></div></section>
+<section class="campaign-layout">
+<div class="map-panel"><div class="panel-head"><div><small>CAMPAIGN THEATRE</small><h2>The Western Marches</h2></div><span class="live-dot">YOUR CAMPAIGN</span></div>
+<div class="map" id="map" aria-label="Interactive campaign map">
+<svg class="terrain" viewBox="0 0 700 480" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H700V480H0Z" fill="#303f35"/><path d="M0 0L180 0 250 70 205 145 120 160 75 240 0 210Z" fill="#52634a"/><path d="M300 0L480 0 450 85 520 140 440 210 360 170 270 110Z" fill="#5b6749"/><path d="M540 0H700V150L630 190 560 140Z" fill="#465a42"/><path d="M0 310L105 250 200 290 260 390 200 480H0Z" fill="#536449"/><path d="M310 260L400 215 490 255 520 350 440 480H290L260 390Z" fill="#4b5d43"/><path d="M570 230L700 185V480H490L520 350Z" fill="#5a6548"/><g fill="none" stroke="#8a956b" stroke-width="2" opacity=".7"><path d="M0 100Q180 160 350 80T700 100"/><path d="M0 200Q180 260 360 190T700 220"/><path d="M0 340Q180 290 350 350T700 360"/><path d="M120 0Q180 200 130 480"/><path d="M340 0Q280 200 360 480"/><path d="M540 0Q590 220 540 480"/></g></svg>
+<div class="map-label label-north">THE NORTH</div><button class="province owned selected" data-id="crown" style="left:28%;top:31%"><span>♜</span><b>Highcourt</b><small>YOUR CAPITAL</small></button>
+<button class="province owned" data-id="vale" style="left:48%;top:55%"><span>⚒</span><b>Greenvale</b><small>YOUR LAND</small></button>
+<button class="province enemy" data-id="blackmere" style="left:72%;top:30%"><span>♟</span><b>Blackmere</b><small>ENEMY · 900</small></button>
+<button class="province neutral" data-id="eastwatch" style="left:78%;top:69%"><span>🏰</span><b>Eastwatch</b><small>NEUTRAL · 600</small></button>
+<button class="province enemy" data-id="redfen" style="left:24%;top:75%"><span>♟</span><b>Redfen</b><small>ENEMY · 750</small></button>
+<svg class="roads" viewBox="0 0 700 480" preserveAspectRatio="none" aria-hidden="true"><path d="M196 149L336 264L504 145M336 264L168 360L550 332" stroke="#d5c79b" stroke-width="3" stroke-dasharray="8 8" fill="none" opacity=".75"/></svg>
+<div class="map-compass">N<br>✦</div></div>
+<div class="map-legend"><span><i class="dot own"></i> Your territory</span><span><i class="dot foe"></i> Enemy</span><span><i class="dot free"></i> Neutral</span><span class="hint">Tap a province to inspect it</span></div></div>
+<aside class="side-panel"><div class="panel-head"><div><small>PROVINCE INTEL</small><h2 id="province-title">Highcourt</h2></div><span id="owner-tag" class="tag own-tag">YOUR CAPITAL</span></div><p id="province-desc" class="province-desc">The heart of your realm. Keep it safe, and your banner will endure.</p>
+<div class="intel-grid"><div><small>GARRISON</small><strong id="garrison">1,200</strong></div><div><small>INCOME / TURN</small><strong id="income">+180 gold</strong></div><div><small>DEFENCE</small><strong id="defence">Strong</strong></div><div><small>BUILDING</small><strong id="building">Keep</strong></div></div>
+<div class="actions"><button class="action primary" id="recruit">＋ Recruit soldiers <span>300 gold · 100 food</span></button><button class="action" id="fortify">♜ Fortify province <span>250 gold · 100 wood</span></button><button class="action attack" id="attack">⚔ Attack this province <span id="attack-cost">Select an enemy or neutral land</span></button><button class="action" id="end-turn">End turn → <span>Collect income and let rivals act</span></button></div>
+<div id="notice" class="notice" role="status">Your scouts report movement near the eastern border.</div></aside>
+</section>
+<section class="bottom-grid"><div class="panel"><div class="panel-head"><div><small>WAR COUNCIL</small><h2>Campaign log</h2></div><button id="clear-log" class="text-button">Clear</button></div><ul id="log" class="log"><li><span>TURN 1</span>Your reign begins. The map is yours to change.</li><li><span>SCOUTS</span>Blackmere is hostile. Eastwatch remains unclaimed.</li></ul></div><div class="panel objective"><small>YOUR FIRST OBJECTIVE</small><h2>Secure the frontier</h2><p>Capture one neighbouring province and grow your realm beyond the capital.</p><div class="progress"><span id="progress"></span></div><small id="progress-label">0 of 1 provinces conquered</small><button id="reset" class="text-button reset">Restart campaign</button></div></section>
+<footer>IRON CROWN <span>·</span> A small original medieval strategy game</footer>
+</main><script src="scripts.js"></script></body></html>
